@@ -9,6 +9,12 @@ let wordCloudArea = document.querySelector("#wordCloudArea");
 
 generateButton.addEventListener("click", () => {
 
-    wordCloudArea.innerHTML = wordCloudHTML.value.replaceAll("_", " ");
+    let data = JSON.parse(wordCloudHTML.value);
+
+    wordCloudArea.innerHTML = data.html;
+
+    wordCloudArea.querySelectorAll("text").forEach(element => {
+        element.innerHTML = data.map[element.innerHTML];
+    });
 
 });
